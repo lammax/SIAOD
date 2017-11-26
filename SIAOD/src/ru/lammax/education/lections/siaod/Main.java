@@ -6,9 +6,11 @@ import ru.lammax.education.lections.siaod.lec2.elementary_sorts.InsertionSort;
 import ru.lammax.education.lections.siaod.lec2.elementary_sorts.SelectionSort;
 import ru.lammax.education.lections.siaod.lec2.elementary_sorts.ShellSort;
 import ru.lammax.education.lections.siaod.lec3.MergeSort;
+import ru.lammax.education.lections.siaod.lec4.Heap;
 
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -149,13 +151,27 @@ public class Main {
         }
     }
 
+    private static void heapSort(Scanner in, PrintStream out){
+        Double[] a = getRandomArray(in);
+        out.println(Arrays.toString(a));
+
+        long currentMilliseconds = System.currentTimeMillis();
+        Heap<Double> h = new Heap(a);
+        h.sort();
+        out.println(System.currentTimeMillis() - currentMilliseconds);
+
+        out.println(h.toString());
+    }
+
+
     public static void main(String[] args) throws IOException {
         //to be or not to - be - - that - - - is
         Scanner in = new Scanner(System.in);
         PrintStream out = System.out;
 
-        StackOfStrings(in, out);
+//        StackOfStrings(in, out);
 //        megreSort(in, out);
+        heapSort(in, out);
 
     }
 }
